@@ -1,0 +1,84 @@
+Modelo Banco de Dados
+
+Bancos
+
+  - Member // Usuarios
+  - Category // Categorias
+  - Subcategory // Subcategorias
+  - Process // Processos
+  - Step // Etapas
+  - Task // Tarefas
+  - Comment // Comentarios
+  - Board // Diretorias
+  - Tags // Etiquetas
+  
+Especificações
+
+  - Member
+    > Name - string
+    > E-mail - string(usar regex)
+    > MemberType - boolean
+    > Password - string
+    > Photo - (pesquisar como armazenar imagens em um bd)
+    < has one Board
+    
+    
+  - Category
+    > Name - string
+    > Description - text
+    < has one Board
+    < has many Subcategories
+    < has many Processes
+    
+  - Subcategory
+    > Name - string
+    > Description - text
+    < belongs to Categories
+    < has many Processes
+  
+  - Process
+    > Name - string
+    > Description - text
+    > Deadline - string (usar regex)
+    > Creator - string
+    < belongs to Subcategory
+    < belongs to Category
+    < has many Comments
+    < has many Members
+    
+  - Step 
+    > Name - string
+    > Description - text
+    > Deadline - string (usar regex)
+    < belongs to Process
+    < has many Tags
+    < has many Members
+    < has many Comments
+    
+  - Task 
+    > Name - string
+    < belongs to Board
+    < belongs to Step
+    < belongs to Process
+    < has many Members
+    
+  - Comment
+    > Text - text
+    > Date - string
+    < belongs to member
+    
+  - Board
+    > Name - string
+    > Director - string
+    < has many Members
+    < has many Tasks
+    
+    
+    
+    
+    dúvidas:
+    todo o processo precisa pertencer necessariamente a uma subcategoria? não necessariamente.. 
+    um processo pode pertencer a mais de uma 
+    subcategoria? sim, foi falado que os projetos podem não só ser de várias diretorias
+    como também de varias subcategorias
+    
