@@ -1,3 +1,5 @@
 Rails.application.routes.draw do
-  get 'test/new'
+  
+  root 'static#test'
+  
 end
