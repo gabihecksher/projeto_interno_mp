@@ -10,7 +10,7 @@ Bancos
   - Task // Tarefas
   - Comment // Comentarios
   - Board // Diretorias
-  - Tags // Etiquetas
+  - Tag // Etiquetas
   
 Especificações
 
@@ -73,12 +73,8 @@ Especificações
     < has many Members
     < has many Tasks
     
-    
-    
-    
-    dúvidas:
-    todo o processo precisa pertencer necessariamente a uma subcategoria? não necessariamente.. 
-    um processo pode pertencer a mais de uma 
-    subcategoria? sim, foi falado que os projetos podem não só ser de várias diretorias
-    como também de varias subcategorias
+  - Tag
+    > Name - string (talvez, apenas pra identificar)
+    > Color - string
+    < belongs to Task
     
