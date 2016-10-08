@@ -50,7 +50,7 @@
 }
 .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover {
 	height: 45px;
-	width: 180px;
+	width: 200px;
     color: #fff;
     text-decoration: none;
     background-color: #0066CC;
@@ -66,5 +66,5 @@
 .navbar-default .navbar-nav .open .dropdown-menu>li>a{
 	color:#fff;
 	height: 45px;
-	width: 180px;
+	width: 200px;
 }
