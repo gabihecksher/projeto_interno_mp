@@ -2,31 +2,30 @@ Modelo Banco de Dados
 
 Bancos
 
-  - Member // Usuarios
+  - User // Usuarios
   - Category // Categorias
   - Subcategory // Subcategorias
   - Process // Processos
   - Step // Etapas
   - Task // Tarefas
   - Comment // Comentarios
-  - Board // Diretorias
+  - Department // Diretorias
   - Tag // Etiquetas
   
 Especificações
 
-  - Member
+  - User
     > Name - string
     > E-mail - string(usar regex)
-    > MemberType - boolean
+    > Admin - boolean
     > Password - string
-    > Photo - (pesquisar como armazenar imagens em um bd)
-    < has one Board
-    
+    > Photo - carrierwave com magick
+    < has one Department
     
   - Category
     > Name - string
     > Description - text
-    < has one Board
+    < has one Department
     < has many Subcategories
     < has many Processes
     
@@ -39,42 +38,36 @@ Especificações
   - Process
     > Name - string
     > Description - text
-    > Deadline - string (usar regex)
-    > Creator - string
-    < belongs to Subcategory
+    > Author - int (id do user)
+    < belongs to Subcategory ?
     < belongs to Category
     < has many Comments
-    < has many Members
     
-  - Step 
+  - Step / Etapa
     > Name - string
     > Description - text
-    > Deadline - string (usar regex)
+    < belongs to Column
     < belongs to Process
     < has many Tags
-    < has many Members
     < has many Comments
-    
-  - Task 
+
+  - Column
     > Name - string
-    < belongs to Board
-    < belongs to Step
+    < belongs to Department
     < belongs to Process
-    < has many Members
     
   - Comment
     > Text - text
-    > Date - string
-    < belongs to member
+    > Date - date
+    < belongs to User
     
-  - Board
+  - Department
     > Name - string
-    > Director - string
-    < has many Members
+    > Director - user_id
+    < has many Users
     < has many Tasks
     
   - Tag
     > Name - string (talvez, apenas pra identificar)
     > Color - string
     < belongs to Task
-    
