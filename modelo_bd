@@ -2,40 +2,40 @@ Modelo Banco de Dados
 
 Bancos
 
-  - User // Usuarios
-  - Category // Categorias
-  - Subcategory // Subcategorias
-  - Process // Processos
-  - Step // Etapas
-  - Task // Tarefas
-  - Comment // Comentarios
-  - Department // Diretorias
-  - Tag // Etiquetas
+  - User 
+  - Category 
+  - Subcategory 
+  - Process
+  - Column
+  - Step
+  - Comment
+  - Department
+  - Tag
   
 Especificações
 
-  - User
+  - User +
     > Name - string
     > E-mail - string(usar regex)
     > Admin - boolean
-    > Password - string
+    #> Password - string#
     > Photo - carrierwave com magick
     < has one Department
     
-  - Category
+  - Category +
     > Name - string
     > Description - text
     < has one Department
     < has many Subcategories
     < has many Processes
     
-  - Subcategory
+  - Subcategory +
     > Name - string
     > Description - text
     < belongs to Categories
     < has many Processes
   
-  - Process
+  - Process +
     > Name - string
     > Description - text
     > Author - int (id do user)
@@ -43,31 +43,33 @@ Especificações
     < belongs to Category
     < has many Comments
     
-  - Step / Etapa
+  - Column +
+    > Name - string
+    < belongs to Department
+    < belongs to Process
+    
+  - Step / Etapa 
     > Name - string
     > Description - text
     < belongs to Column
     < belongs to Process
     < has many Tags
     < has many Comments
-
-  - Column
-    > Name - string
-    < belongs to Department
-    < belongs to Process
     
-  - Comment
+  - Comment +
     > Text - text
     > Date - date
     < belongs to User
     
-  - Department
+  - Department +
     > Name - string
     > Director - user_id
     < has many Users
-    < has many Tasks
+    < has many Processes
+    < has many Categories
+    < has many Subcategories
     
-  - Tag
+  - Tag +
     > Name - string (talvez, apenas pra identificar)
     > Color - string
-    < belongs to Task
+    < belongs to Step
