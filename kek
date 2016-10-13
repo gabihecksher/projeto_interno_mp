@@ -1,0 +1,9 @@
+    rails g scaffold User name:string email:string photo:string admin:boolean
+    rails g scaffold Category name:string description:text
+    rails g scaffold Subcategory name:string description:text
+    rails g scaffold Process name:string description:text author:integer
+    rails g scaffold Column name:string description:text
+    rails g scaffold Step name:string description:text
+    rails g scaffold Comment content:text date:date
+    rails g scaffold Department name:string director:integer 
+    rails g scaffold Tag name:string color:string
